@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/aryan/OneDrive/Desktop/COE SEM 6/Capstone/Project/Project/predict",
+      "program": "c:/Users/aryan/OneDrive/Desktop/COE SEM 6/Capstone/Project/Project/predict/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
