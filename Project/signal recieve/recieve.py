@@ -28,7 +28,11 @@
 #             f.write(f"{value}\n")
 #             print(f"Received value: {value}")
 
+<<<<<<< HEAD
 # if _name_ == "_main_":
+=======
+# if __name__ == "__main__":
+>>>>>>> 920375e90e55644b45ca4fceaf794386fdce34cc
 #     receive_data()
 
 
@@ -59,6 +63,19 @@ def receive_data(serial_port='COM3', baud_rate=230400, output_file='eeg_dataREAL
                 continue  # Skip if no data received
             
             lsb = ord(lsb_byte) & 0x7F  # Only consider the 7 LSB bits
+<<<<<<< HEAD
+=======
+
+            # Reconstruct the original analog value from the two bytes
+            value = (msb << 7) | lsb  # Combine MSB and LSB
+            
+            # Record the current timestamp
+            timestamp = time.time()
+
+            # Write to CSV file and print the value
+            csvwriter.writerow([timestamp, value])
+            print(f"Received value: {value} at {timestamp}")
+>>>>>>> 920375e90e55644b45ca4fceaf794386fdce34cc
 
             # Reconstruct the original analog value from the two bytes
             value = (msb << 7) | lsb  # Combine MSB and LSB

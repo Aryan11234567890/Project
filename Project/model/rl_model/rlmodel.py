@@ -6,7 +6,10 @@ from tensorflow.keras.optimizers import Adam
 from collections import deque
 import random
 from env import *
+<<<<<<< HEAD:Project/model/rl model/rlmodel.py
 
+=======
+>>>>>>> 920375e90e55644b45ca4fceaf794386fdce34cc:Project/model/rl_model/rlmodel.py
 class DQNAgent:
     def __init__(self, state_size, action_size):
         self.state_size = state_size
@@ -27,7 +30,7 @@ class DQNAgent:
         model.add(Dense(self.action_size, activation='linear'))
         model.compile(loss='mse', optimizer=Adam(learning_rate=self.learning_rate))
         return model
-    
+
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
     
@@ -54,8 +57,12 @@ action_size = 2
 agent = DQNAgent(state_size, action_size)
 
 # Train the agent
-episodes = 1000
+episodes = 50
 batch_size = 32
+
+import matplotlib.pyplot as plt
+
+
 
 for e in range(episodes):
     state = env.reset()
@@ -70,8 +77,9 @@ for e in range(episodes):
         
         if done:
             print(f"Episode {e+1}/{episodes}, score: {time}")
+            plt.plot((e+1)/episodes,time)
             break
     
     if len(agent.memory) > batch_size:
         agent.replay(batch_size)
-agent.model.save('dqn_wheelchair_model.h5')
+agent.model.save('dqn_wheelchair_model.keras')
